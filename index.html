@@ -1,469 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects of Basit Iqbal Bitto | Portfolio</title>
-    <link rel="icon" href="b logo.PNG">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #6c63ff;
-            --primary-dark: #564fcc;
-            --secondary: #ff6584;
-            --dark: #2d2d2d;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --dark-bg: #1a1a2e;
-            --card-bg: #16213e;
-            --footer-bg: #0f3460;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Basit Iqbal Bitto | Projects</title>
+<link rel="icon" href="b logo.PNG">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f1ea; --surface:#fbf9f4; --ink:#16140f; --muted:#6b665b; --line:#dcd7ca; --accent:#d9431e;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Hanken Grotesk',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#121110;--surface:#1a1917;--ink:#f1ede4;--muted:#9a948770;--line:#2c2a26;--accent:#ff6a42}
+}
+:root[data-theme="dark"]{--bg:#121110;--surface:#1a1917;--ink:#f1ede4;--muted:#9a9487;--line:#2c2a26;--accent:#ff6a42}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--muted:#9a9487}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 clamp(20px,4vw,40px)}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}
+nav .mark{font-family:var(--serif);font-size:1.35rem}
+nav .right{display:flex;gap:22px;align-items:center;font-size:.92rem;color:var(--muted)}
+nav .right a:hover{color:var(--ink)}
+#theme{background:none;border:1px solid var(--line);color:var(--ink);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem}
+#theme:hover{border-color:var(--accent)}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--light);
-            min-height: 100vh;
-            position: relative;
-            padding-bottom: 80px;
-        }
+.hero{padding:clamp(56px,10vw,120px) 0 clamp(48px,7vw,80px)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(3rem,9.5vw,8rem);line-height:.95;letter-spacing:-.02em}
+.hero h1 em{color:var(--accent)}
+.hero .lede{max-width:520px;margin-top:28px;color:var(--muted);font-size:1.1rem}
+.hero .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:500;font-size:.95rem;border:1px solid var(--ink);transition:.2s}
+.btn.solid{background:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
 
-        .header {
-            text-align: center;
-            padding: 40px 20px 30px;
-            position: relative;
-            overflow: hidden;
-        }
+.head{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid var(--line);padding:28px 0 36px;flex-wrap:wrap;gap:12px}
+.head h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,4vw,3rem)}
+.head span{color:var(--muted);font-size:.95rem}
 
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1) 0%, rgba(255, 101, 132, 0.1) 100%);
-            z-index: -1;
-        }
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.chip{background:none;border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:999px;font:inherit;font-size:.88rem;cursor:pointer;transition:.2s}
+.chip:hover{color:var(--ink);border-color:var(--ink)}
+.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-        .header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px 24px;padding-bottom:80px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.card.hide{display:none}
+.shot{aspect-ratio:16/10;background:var(--line);overflow:hidden;position:relative}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s}
+.card:hover .shot img{transform:scale(1.04)}
+.body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.meta{font-size:.82rem;color:var(--accent);font-weight:600}
+.body h3{font-family:var(--serif);font-weight:400;font-size:1.65rem;line-height:1.15}
+.body p{color:var(--muted);font-size:.95rem;flex:1}
+.go{display:flex;justify-content:space-between;align-items:center;margin-top:10px;padding-top:14px;border-top:1px solid var(--line);font-weight:500;font-size:.92rem}
+.go svg{width:18px;height:18px;transition:transform .25s}
+.card:hover .go svg{transform:translate(3px,-3px);color:var(--accent)}
 
-        .header p {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
+footer{border-top:1px solid var(--line);padding:56px 0 40px}
+footer .big{font-family:var(--serif);font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;max-width:640px}
+footer .social{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+footer .copy{margin-top:48px;color:var(--muted);font-size:.85rem}
 
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .project-card {
-            background: var(--card-bg);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: var(--primary);
-        }
-
-        .project-image {
-            height: 180px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-
-        .project-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background-color: var(--secondary);
-            color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-content h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: white;
-            font-weight: 600;
-        }
-
-        .project-content p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-
-        .project-links {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .project-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px 20px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(108, 99, 255, 0.3);
-        }
-
-        .project-link:hover {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(108, 99, 255, 0.4);
-        }
-
-        .project-link i {
-            margin-right: 8px;
-        }
-
-        .footer {
-            background-color: var(--footer-bg);
-            padding: 20px;
-            text-align: center;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            z-index: 100;
-            box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .social-link {
-            color: white;
-            text-decoration:none;
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .social-link:hover {
-            transform: translateY(-3px);
-            background: var(--primary);
-            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
-        }
-
-        .watermark {
-            margin-top: 15px;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .project-card {
-            animation: fadeIn 0.6s ease forwards;
-            opacity: 0;
-        }
-
-        .project-card:nth-child(1) { animation-delay: 0.1s; }
-        .project-card:nth-child(2) { animation-delay: 0.2s; }
-        .project-card:nth-child(3) { animation-delay: 0.3s; }
-        .project-card:nth-child(4) { animation-delay: 0.4s; }
-        .project-card:nth-child(5) { animation-delay: 0.5s; }
-        .project-card:nth-child(6) { animation-delay: 0.6s; }
-        .project-card:nth-child(7) { animation-delay: 0.7s; }
-        .project-card:nth-child(8) { animation-delay: 0.8s; }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .header p {
-                font-size: 1rem;
-            }
-            
-            .projects-container {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 30px 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .projects-container {
-                grid-template-columns: 1fr;
-                padding: 0 15px;
-            }
-            
-            .social-links {
-                gap: 15px;
-            }
-            
-            .social-link {
-                width: 40px;
-                height: 40px;
-                font-size: 1.3rem;
-            }
-        }
-    </style>
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+@media (max-width:520px){nav .right a.hl{display:none}.grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>Basit Iqbal Bitto</h1>
-        <p>Explore my collection of projects showcasing my skills in web development and design</p>
+<div class="wrap">
+  <nav>
+    <a class="mark" href="#top">Basit Iqbal Bitto</a>
+    <div class="right">
+      <a class="hl" href="#work">Projects</a>
+      <a class="hl" href="#contact">Contact</a>
+      <button id="theme" aria-label="Toggle theme">◐</button>
     </div>
+  </nav>
 
-    <div class="projects-container">
-        <div class="project-card">
-            <div class="project-image">
-                <img src="Portfollio-Bitto.jpeg" alt="Portfolio Project">
-                <span class="project-badge">Portfolio</span>
-            </div>
-            <div class="project-content">
-                <h3>Portfolio - 1</h3>
-                <p>My first professional portfolio website showcasing my skills and projects with a clean, modern design.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/portfolio-1" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="QR Code Generator.jpeg" alt="QR Code Generator">
-                <span class="project-badge">Tool</span>
-            </div>
-            <div class="project-content">
-                <h3>QR Code Generator</h3>
-                <p>A responsive web application that generates customizable QR codes for any URL or text input instantly.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/qrcode-generator" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="New Year 2024 Countdown.jpeg" alt="New Year Countdown">
-                <span class="project-badge">Interactive</span>
-            </div>
-            <div class="project-content">
-                <h3>New Year Countdown 2024</h3>
-                <p>An animated countdown timer displaying days, hours, minutes and seconds remaining until New Year 2024.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/new-year-countdown" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="Password Generator.jpeg" alt="Password Generator">
-                <span class="project-badge">Security</span>
-            </div>
-            <div class="project-content">
-                <h3>Password Generator</h3>
-                <p>A secure password generator with customizable length and character options for enhanced account security.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/password-generator" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="Chat GPT.jpeg" alt="ChatGPT Clone">
-                <span class="project-badge">AI</span>
-            </div>
-            <div class="project-content">
-                <h3>ChatGPT Clone</h3>
-                <p>A frontend clone of the popular AI chatbot ChatGPT with a similar interface and responsive design.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/chatgpt-clone" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="Document.jpeg" alt="Rock Paper Scissors Game">
-                <span class="project-badge">Game</span>
-            </div>
-            <div class="project-content">
-                <h3>Rock Paper Scissors</h3>
-                <p>A fun interactive game with score tracking and animations that pits you against the computer.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/rock-paper-scissors-game" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="cv1ss.png" alt="Curriculum Vitae">
-                <span class="project-badge">Resume</span>
-            </div>
-            <div class="project-content">
-                <h3>Curriculum Vitae</h3>
-                <p>My professional CV highlighting my education, skills, experience and accomplishments.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/cv1" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View CV
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-image">
-                <img src="portfolio.png" alt="Portfolio Project">
-                <span class="project-badge">Portfolio</span>
-            </div>
-            <div class="project-content">
-                <h3>Portfolio - 2</h3>
-                <p>An enhanced portfolio website with improved design elements and better user experience.</p>
-                <div class="project-links">
-                    <a href="https://bitto29.github.io/portfolio" class="project-link">
-                        <i class="fas fa-external-link-alt"></i> View Project
-                    </a>
-                </div>
-            </div>
-        </div>
+  <header class="hero" id="top">
+    <h1>I build things<br>for the <em>web.</em></h1>
+    <p class="lede">Web developer and designer. A collection of tools, games, clones and sites I've shipped, each one live and ready to open.</p>
+    <div class="cta">
+      <a class="btn solid" href="#work">See my work</a>
+      <a class="btn ghost" href="https://github.com/Bitto29" target="_blank" rel="noopener">GitHub</a>
     </div>
+  </header>
 
-    <div class="footer">
-        <div class="social-links">
-            <a href="https://www.facebook.com/bitto29" class="social-link" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-            </a>
-            <a href="https://www.linkedin.com/in/bitto29" class="social-link" target="_blank">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            </a>
-            <a href="https://github.com/Bitto29" class="social-link" target="_blank">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        <div class="watermark">
-            &copy; 2025 Basit Iqbal Bitto. All rights reserved.
-        </div>
+
+  <section id="work">
+    <div class="head"><h2>Selected projects</h2><span id="count"></span></div>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <footer id="contact">
+    <p class="big">Have a project in mind? Let's talk.</p>
+    <div class="social">
+      <a class="btn ghost" href="https://www.linkedin.com/in/bitto29" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/Bitto29" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.facebook.com/bitto29" target="_blank" rel="noopener">Facebook</a>
     </div>
+    <p class="copy">&copy; 2025 Basit Iqbal Bitto. All rights reserved.</p>
+  </footer>
+</div>
 
-    <script>
-        // Add smooth scrolling to all links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+<script>
+const projects=[
+ {t:"Foc Lock",c:"Web App",d:"All in one study tracker available both as a web app and an Android APK.",img:"https://bitto.pages.dev/foclock.vercel.app_.png",u:"https://foclock.vercel.app/",l:"Open App"},
+ {t:"Demo Cafe Website",c:"Website",d:"A fully functional demo website built for a cafe.",img:"https://i.postimg.cc/CKz7NBHV/image.png",u:"https://b29cafedemo.vercel.app/",l:"View Project"},
+ {t:"ChatB",c:"AI",d:"An artificially intelligent chatbot built using NLP and machine learning.",img:"https://bitto.pages.dev/project2.jpg",u:"https://bitto29.github.io/chatb",l:"View Project"},
+ {t:"Portfolio - 1",c:"Portfolio",d:"My first professional portfolio website showcasing my skills and projects with a clean, modern design.",img:"Portfollio-Bitto.jpeg",u:"https://bitto29.github.io/portfolio-1",l:"View Project"},
+ {t:"QR Code Generator",c:"Tool",d:"A responsive web application that generates customizable QR codes for any URL or text input instantly.",img:"QR Code Generator.jpeg",u:"https://bitto29.github.io/qrcode-generator",l:"View Project"},
+ {t:"New Year Countdown 2024",c:"Interactive",d:"An animated countdown timer displaying days, hours, minutes and seconds remaining until New Year 2024.",img:"New Year 2024 Countdown.jpeg",u:"https://bitto29.github.io/new-year-countdown",l:"View Project"},
+ {t:"Password Generator",c:"Security",d:"A secure password generator with customizable length and character options for enhanced account security.",img:"Password Generator.jpeg",u:"https://bitto29.github.io/password-generator",l:"View Project"},
+ {t:"ChatGPT Clone",c:"AI",d:"A frontend clone of the popular AI chatbot ChatGPT with a similar interface and responsive design.",img:"Chat GPT.jpeg",u:"https://bitto29.github.io/chatgpt-clone",l:"View Project"},
+ {t:"Rock Paper Scissors",c:"Game",d:"A fun interactive game with score tracking and animations that pits you against the computer.",img:"Document.jpeg",u:"https://bitto29.github.io/rock-paper-scissors-game",l:"View Project"},
+ {t:"Curriculum Vitae",c:"Resume",d:"My professional CV highlighting my education, skills, experience and accomplishments.",img:"cv1ss.png",u:"https://bitto29.github.io/cv1",l:"View CV"},
+ {t:"Portfolio - 2",c:"Portfolio",d:"An enhanced portfolio website with improved design elements and better user experience.",img:"portfolio.png",u:"https://bitto29.github.io/portfolio",l:"View Project"}
+];
+const arrow='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+const grid=document.getElementById('grid');
+grid.innerHTML=projects.map(p=>`
+<a class="card reveal" data-c="${p.c}" href="${p.u}" target="_blank" rel="noopener">
+  <div class="shot"><img src="${p.img}" alt="${p.t} screenshot" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="body"><span class="meta">${p.c}</span><h3>${p.t}</h3><p>${p.d}</p>
+  <div class="go"><span>${p.l}</span>${arrow}</div></div>
+</a>`).join('');
 
-        // Add animation when scrolling to projects
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                }
-            });
-        }, { threshold: 0.1 });
+document.getElementById('count').textContent=projects.length+' projects';
+const cats=['All',...new Set(projects.map(p=>p.c))];
+const fx=document.getElementById('filters');
+fx.innerHTML=cats.map((c,i)=>`<button class="chip${i?'':' on'}" data-f="${c}">${c}</button>`).join('');
+fx.addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  fx.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));
+  let n=0;
+  grid.querySelectorAll('.card').forEach(c=>{
+    const show=b.dataset.f==='All'||c.dataset.c===b.dataset.f;
+    c.classList.toggle('hide',!show);if(show)n++;
+  });
+  document.getElementById('count').textContent=n+(n===1?' project':' projects');
+});
 
-        projectCards.forEach(card => {
-            observer.observe(card);
-        });
-    </script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+grid.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+const root=document.documentElement;
+try{const s=localStorage.getItem('theme');if(s)root.dataset.theme=s}catch(e){}
+document.getElementById('theme').onclick=()=>{
+  const dark=root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+  root.dataset.theme=dark?'light':'dark';
+  try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}
+};
+</script>
 </body>
 </html>
