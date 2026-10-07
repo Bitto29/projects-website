@@ -6,7 +6,7 @@
 <title>Project Publisher | Bitto29</title>
 <style>
 :root{color-scheme:dark;--bg:#10100f;--card:#191816;--line:#34312b;--ink:#f4efe6;--muted:#aaa296;--accent:#ff6a42;--success:#49d17d}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.status{margin-top:16px;color:var(--muted)}.status.ok{color:var(--success);font-weight:600}.tagbox{position:relative}.tagmenu{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 6px);background:#171614;border:1px solid var(--line);border-radius:12px;padding:8px;max-height:250px;overflow:auto;box-shadow:0 12px 30px #0008}.tagmenu.open{display:block}.tagmenu label{display:flex;align-items:center;gap:9px;margin:0;padding:9px;border-radius:8px;font-weight:400;cursor:pointer}.tagmenu label:hover{background:#24221f}.tagmenu input{width:auto;padding:0;accent-color:var(--accent)}.selected-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.custom-row{display:flex;gap:8px;margin-top:8px}.custom-row input{flex:1}.custom-row button{margin:0;border-radius:10px;padding:10px 14px}.cat-custom{display:none;margin-top:8px}.cat-custom.show{display:block}.hint{font-size:12px;color:var(--muted);margin-top:6px}.manage-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:9px;background:#141310}.manage-row img{width:64px;height:42px;object-fit:cover;border-radius:7px;background:#25231f}.manage-info strong{display:block}.manage-info small{color:var(--muted)}.manage-actions{display:flex;gap:5px}.manage-actions button{margin:0;padding:8px 11px;border-radius:8px}.danger{background:#8d3028!important;color:#fff!important}.manage-empty{color:var(--muted);padding:15px 0}@media(max-width:650px){.preview{grid-template-columns:1fr}.manage-row{grid-template-columns:52px 1fr}.manage-row img{width:52px;height:38px}.manage-actions{grid-column:1/-1}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.status{margin-top:16px;color:var(--muted)}.status.ok{color:var(--success);font-weight:600}.tagbox{position:relative}.tagmenu{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 6px);background:#171614;border:1px solid var(--line);border-radius:12px;padding:8px;max-height:250px;overflow:auto;box-shadow:0 12px 30px #0008}.tagmenu.open{display:block}.tagmenu label{display:flex;align-items:center;gap:9px;margin:0;padding:9px;border-radius:8px;font-weight:400;cursor:pointer}.tagmenu label:hover{background:#24221f}.tagmenu input{width:auto;padding:0;accent-color:var(--accent)}.selected-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.custom-row{display:flex;gap:8px;margin-top:8px}.custom-row input{flex:1}.custom-row button{margin:0;border-radius:10px;padding:10px 14px}.cat-custom{display:none;margin-top:8px}.cat-custom.show{display:block}.hint{font-size:12px;color:var(--muted);margin-top:6px}.manage-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:9px;background:#141310}.manage-row img{width:64px;height:42px;object-fit:cover;border-radius:7px;background:#25231f}.manage-info strong{display:block}.manage-info small{color:var(--muted)}.manage-actions{display:flex;gap:5px}.manage-actions button{margin:0;padding:8px 11px;border-radius:8px}.edit-btn{background:#2b2a26!important;color:var(--ink)!important}.danger{background:#8d3028!important;color:#fff!important}.manage-empty{color:var(--muted);padding:15px 0}@media(max-width:650px){.preview{grid-template-columns:1fr}.manage-row{grid-template-columns:52px 1fr}.manage-row img{width:52px;height:38px}.manage-actions{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -39,6 +39,10 @@
       <div>
         <label for="title">Title</label><input id="title">
 
+        <label for="projectUrl">Project URL</label><input id="projectUrl">
+
+        <label for="imageUrl">Preview Image URL</label><input id="imageUrl">
+
         <label for="category">Category</label>
         <select id="category">
           <option>Web App</option><option>Website</option><option>AI</option><option>Tool</option>
@@ -68,6 +72,7 @@
         <input id="secret" type="password" placeholder="Only needed when publishing">
 
         <button id="publish">Publish to Projects</button>
+        <button id="applyEdit" hidden>Apply Edit</button>
         <button id="reset" class="secondary">Start Over</button>
       </div>
     </div>
@@ -75,6 +80,7 @@
 </div>
 <script>
 let draft=null;
+let editingIndex=-1;
 const $=id=>document.getElementById(id);
 const tagOptions=['HTML','CSS','JavaScript','TypeScript','React','Next.js','Tailwind CSS','Node.js','Vercel','Supabase','Firebase','Gemini','AI','API','PWA','GitHub Pages','Responsive Design','Authentication','Database','Open Source'];
 const selectedTags=new Set();
@@ -114,10 +120,13 @@ $('generate').onclick=async()=>{
     try{data=JSON.parse(raw)}catch{throw new Error('Server error: '+raw.slice(0,300))}
     if(!r.ok)throw new Error(data.error||'Generation failed.');
     draft=data.project;
+    editingIndex=-1;
     $('title').value=draft.t||'';
+    $('projectUrl').value=draft.u||url;
+    $('imageUrl').value=draft.img||'';
+    $('shot').src=draft.img||'';
     setCategory(draft.c||'Web App');
     $('description').value=draft.d||'';
-    $('shot').src=draft.img||'';
     selectedTags.clear();
     [...(draft.tags||[]),...(draft.tech||[])].forEach(t=>selectedTags.add(String(t)));
     renderTags();
@@ -131,6 +140,7 @@ $('publish').onclick=async()=>{
   const category=$('category').value==='__custom'?$('customCategoryInput').value.trim():$('category').value;
   if(!category)return $('status').textContent='Please choose or write a category.';
   draft.t=$('title').value.trim();draft.c=category;draft.d=$('description').value.trim();
+  draft.u=$('projectUrl').value.trim();draft.img=$('imageUrl').value.trim();
   draft.tags=[...selectedTags];
   draft.tech=[];
   $('publish').disabled=true;$('status').textContent='Publishing to GitHub...';
@@ -143,11 +153,11 @@ $('publish').onclick=async()=>{
     $('status').innerHTML='✓ Published successfully! <a href="https://bitto29.github.io/projects-website/" target="_blank" rel="noopener" style="color:var(--success)">Open Projects Site ↗</a>';
     $('publish').textContent='Published ✓';
     $('publish').disabled=true;
-  }catch(e){$('status').textContent=e.message}
-  finally{$('publish').disabled=false}
+  }catch(e){$('status').className='status';$('status').textContent=e.message}
+  finally{}
 };
 
-$('reset').onclick=()=>{draft=null;selectedTags.clear();renderTags();$('preview').hidden=true;$('status').className='status';$('status').textContent='';$('publish').textContent='Publish to Projects';$('publish').disabled=false;$('url').focus()};
+$('reset').onclick=()=>{draft=null;editingIndex=-1;selectedTags.clear();renderTags();$('preview').hidden=true;$('status').className='status';$('status').textContent='';$('publish').textContent='Publish to Projects';$('publish').disabled=false;$('publish').hidden=false;$('applyEdit').hidden=true;$('url').focus()};
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 renderTags();
 
@@ -172,12 +182,65 @@ function renderManagedProjects(){
       <img src="${escapeHtml(p.img||'')}" alt="">
       <div class="manage-info"><strong>${escapeHtml(p.t||'Untitled')}</strong><small>${escapeHtml(p.c||'')} · ${escapeHtml(p.u||'')}</small></div>
       <div class="manage-actions">
+        <button type="button" class="edit-btn" onclick="editProject(${i})">Edit</button>
         <button type="button" onclick="moveProject(${i},-1)" ${i===0?'disabled':''}>↑</button>
         <button type="button" onclick="moveProject(${i},1)" ${i===managedProjects.length-1?'disabled':''}>↓</button>
         <button type="button" class="danger" onclick="deleteProject(${i})">Delete</button>
       </div>
     </div>`).join('')||'<div class="manage-empty">No projects.</div>';
 }
+
+window.editProject=(i)=>{
+  const p=managedProjects[i];
+  if(!p)return;
+  editingIndex=i;
+  draft={...p,tags:Array.isArray(p.tags)?[...p.tags]:[],tech:Array.isArray(p.tech)?[...p.tech]:[]};
+  $('title').value=draft.t||'';
+  $('projectUrl').value=draft.u||'';
+  $('imageUrl').value=draft.img||'';
+  setCategory(draft.c||'Web App');
+  $('description').value=draft.d||'';
+  selectedTags.clear();
+  draft.tags.forEach(t=>selectedTags.add(String(t)));
+  renderTags();
+  $('shot').src=draft.img||'';
+  $('preview').hidden=false;
+  $('publish').hidden=true;
+  $('publish').disabled=true;
+  $('applyEdit').hidden=false;
+  $('status').className='status';
+  $('status').textContent='Editing: '+(draft.t||'project')+'. Make your changes, then click Apply Edit.';
+  $('preview').scrollIntoView({behavior:'smooth',block:'start'});
+};
+
+$('applyEdit').onclick=()=>{
+  if(editingIndex<0||!draft)return;
+  const category=$('category').value==='__custom'?$('customCategoryInput').value.trim():$('category').value;
+  const url=$('projectUrl').value.trim();
+  if(!category)return $('status').textContent='Please choose or write a category.';
+  if(!url||!/^https?:\/\//i.test(url))return $('status').textContent='Please enter a valid project URL.';
+  draft={
+    ...draft,
+    t:$('title').value.trim(),
+    c:category,
+    d:$('description').value.trim(),
+    u:url,
+    img:$('imageUrl').value.trim(),
+    tags:[...selectedTags],
+    tech:[]
+  };
+  managedProjects[editingIndex]=draft;
+  renderManagedProjects();
+  $('saveProjects').disabled=false;
+  $('status').className='status ok';
+  $('status').textContent='✓ Edit applied. Click Save Changes in Manage Projects to save it to GitHub.';
+  $('preview').hidden=true;
+  editingIndex=-1;
+  $('applyEdit').hidden=true;
+  $('publish').hidden=false;
+  $('publish').disabled=false;
+  draft=null;
+};
 
 window.moveProject=(i,dir)=>{
   const j=i+dir;if(j<0||j>=managedProjects.length)return;
