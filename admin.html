@@ -6,7 +6,7 @@
 <title>Project Publisher | Bitto29</title>
 <style>
 :root{color-scheme:dark;--bg:#10100f;--card:#191816;--line:#34312b;--ink:#f4efe6;--muted:#aaa296;--accent:#ff6a42}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 9px;color:var(--muted);margin:3px;font-size:12px}.status{margin-top:16px;color:var(--muted)}@media(max-width:650px){.preview{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.status{margin-top:16px;color:var(--muted)}.tagbox{position:relative}.tagmenu{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 6px);background:#171614;border:1px solid var(--line);border-radius:12px;padding:8px;max-height:250px;overflow:auto;box-shadow:0 12px 30px #0008}.tagmenu.open{display:block}.tagmenu label{display:flex;align-items:center;gap:9px;margin:0;padding:9px;border-radius:8px;font-weight:400;cursor:pointer}.tagmenu label:hover{background:#24221f}.tagmenu input{width:auto;padding:0;accent-color:var(--accent)}.selected-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.custom-row{display:flex;gap:8px;margin-top:8px}.custom-row input{flex:1}.custom-row button{margin:0;border-radius:10px;padding:10px 14px}.cat-custom{display:none;margin-top:8px}.cat-custom.show{display:block}.hint{font-size:12px;color:var(--muted);margin-top:6px}@media(max-width:650px){.preview{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -25,12 +25,36 @@
     <div class="preview">
       <div><img id="shot" alt="Project preview"></div>
       <div>
-        <label>Title</label><input id="title">
-        <label>Category</label><input id="category">
-        <label>Description</label><textarea id="description"></textarea>
-        <label>Tags / technology</label><div id="tags"></div>
+        <label for="title">Title</label><input id="title">
+
+        <label for="category">Category</label>
+        <select id="category">
+          <option>Web App</option><option>Website</option><option>AI</option><option>Tool</option>
+          <option>Game</option><option>Portfolio</option><option>Interactive</option><option>Security</option>
+          <option>Education</option><option>Utility</option><option>Other</option><option value="__custom">Custom...</option>
+        </select>
+        <div id="customCategory" class="cat-custom">
+          <input id="customCategoryInput" placeholder="Write your own category">
+        </div>
+
+        <label for="description">Description</label>
+        <textarea id="description"></textarea>
+
+        <label>Tags</label>
+        <div class="tagbox">
+          <button type="button" id="tagToggle" class="secondary" style="margin:0;width:100%;text-align:left">Select tags ▾</button>
+          <div id="tagMenu" class="tagmenu"></div>
+        </div>
+        <div id="selectedTags" class="selected-tags"></div>
+        <div class="custom-row">
+          <input id="customTag" placeholder="Add custom tag">
+          <button type="button" id="addTag">Add</button>
+        </div>
+        <div class="hint">AI suggestions are only suggestions. You can change everything before publishing.</div>
+
         <label for="secret">Publish secret</label>
         <input id="secret" type="password" placeholder="Only needed when publishing">
+
         <button id="publish">Publish to Projects</button>
         <button id="reset" class="secondary">Start Over</button>
       </div>
@@ -40,37 +64,77 @@
 <script>
 let draft=null;
 const $=id=>document.getElementById(id);
+const tagOptions=['HTML','CSS','JavaScript','TypeScript','React','Next.js','Tailwind CSS','Node.js','Vercel','Supabase','Firebase','Gemini','AI','API','PWA','GitHub Pages','Responsive Design','Authentication','Database','Open Source'];
+const selectedTags=new Set();
+
+$('tagMenu').innerHTML=tagOptions.map((t,i)=>'<label><input type="checkbox" data-tag="'+escapeHtml(t)+'" id="tag'+i+'"> '+escapeHtml(t)+'</label>').join('');
+$('tagToggle').onclick=()=> $('tagMenu').classList.toggle('open');
+document.addEventListener('click',e=>{if(!e.target.closest('.tagbox'))$('tagMenu').classList.remove('open')});
+
+$('category').onchange=()=>{
+  $('customCategory').classList.toggle('show',$('category').value==='__custom');
+};
+
+function setCategory(value){
+  const options=[...$('category').options].map(o=>o.value);
+  if(options.includes(value)){$('category').value=value;$('customCategory').classList.remove('show');}
+  else{$('category').value='__custom';$('customCategory').classList.add('show');$('customCategoryInput').value=value||'';}
+}
+
+function renderTags(){
+  document.querySelectorAll('#tagMenu input[type=checkbox]').forEach(cb=>cb.checked=selectedTags.has(cb.dataset.tag));
+  $('selectedTags').innerHTML=[...selectedTags].map(t=>'<span class="pill">'+escapeHtml(t)+'</span>').join('')||'<span class="pill">No tags selected</span>';
+}
+document.querySelectorAll('#tagMenu input').forEach(cb=>cb.onchange=()=>{cb.checked?selectedTags.add(cb.dataset.tag):selectedTags.delete(cb.dataset.tag);renderTags()});
+$('addTag').onclick=()=>{
+  const v=$('customTag').value.trim();
+  if(v){selectedTags.add(v);$('customTag').value='';renderTags();}
+};
+$('customTag').onkeydown=e=>{if(e.key==='Enter'){$('addTag').click();e.preventDefault()}};
+
 $('generate').onclick=async()=>{
   const url=$('url').value.trim();
   if(!url)return $('status').textContent='Enter a project URL first.';
   $('generate').disabled=true;$('status').textContent='Opening project and generating details...';
   try{
     const r=await fetch('/api/generate-project',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
-    const raw=await r.text();
-    let data;
+    const raw=await r.text();let data;
     try{data=JSON.parse(raw)}catch{throw new Error('Server error: '+raw.slice(0,300))}
     if(!r.ok)throw new Error(data.error||'Generation failed.');
     draft=data.project;
-    $('title').value=draft.t||'';$('category').value=draft.c||'';$('description').value=draft.d||'';
+    $('title').value=draft.t||'';
+    setCategory(draft.c||'Web App');
+    $('description').value=draft.d||'';
     $('shot').src=draft.img||'';
-    $('tags').innerHTML=[...(draft.tags||[]),...(draft.tech||[])].map(x=>'<span class="pill">'+escapeHtml(x)+'</span>').join('')||'<span class="pill">No tags detected</span>';
-    $('preview').hidden=false;$('status').textContent='Draft ready. Review it before publishing.';
+    selectedTags.clear();
+    [...(draft.tags||[]),...(draft.tech||[])].forEach(t=>selectedTags.add(String(t)));
+    renderTags();
+    $('preview').hidden=false;$('status').textContent='Draft ready. Review and edit it before publishing.';
   }catch(e){$('status').textContent=e.message}
   finally{$('generate').disabled=false}
 };
+
 $('publish').onclick=async()=>{
   if(!draft)return;
-  draft.t=$('title').value.trim();draft.c=$('category').value.trim();draft.d=$('description').value.trim();
+  const category=$('category').value==='__custom'?$('customCategoryInput').value.trim():$('category').value;
+  if(!category)return $('status').textContent='Please choose or write a category.';
+  draft.t=$('title').value.trim();draft.c=category;draft.d=$('description').value.trim();
+  draft.tags=[...selectedTags];
+  draft.tech=[];
   $('publish').disabled=true;$('status').textContent='Publishing to GitHub...';
   try{
     const r=await fetch('/api/publish-project',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({project:draft,secret:$('secret').value})});
-    const data=await r.json();if(!r.ok)throw new Error(data.error||'Publish failed.');
+    const raw=await r.text();let data;
+    try{data=JSON.parse(raw)}catch{throw new Error('Server error: '+raw.slice(0,300))}
+    if(!r.ok)throw new Error(data.error||'Publish failed.');
     $('status').textContent='Published! GitHub/Vercel will update the projects site automatically.';
   }catch(e){$('status').textContent=e.message}
   finally{$('publish').disabled=false}
 };
-$('reset').onclick=()=>{draft=null;$('preview').hidden=true;$('status').textContent='';$('url').focus()};
+
+$('reset').onclick=()=>{draft=null;selectedTags.clear();renderTags();$('preview').hidden=true;$('status').textContent='';$('url').focus()};
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+renderTags();
 </script>
 </body>
 </html>
