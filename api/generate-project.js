@@ -33,10 +33,10 @@ export default async function handler(req, res) {
     const image = getMeta(html, 'og:image') || '';
 
     const textContent = html
-      .replace(/<script[\\s\\S]*?<\\/script>/gi, ' ')
-      .replace(/<style[\\s\\S]*?<\\/style>/gi, ' ')
+      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
-      .replace(/\\s+/g, ' ')
+      .replace(/\s+/g, ' ')
       .trim()
       .slice(0, 7000);
 
@@ -106,18 +106,18 @@ Page text: ${textContent}`;
 }
 
 function getMeta(html, name) {
-  const tags = html.match(/<meta\\b[^>]*>/gi) || [];
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
   for (const tag of tags) {
-    const key = tag.match(/\\b(?:property|name)\\s*=\\s*["']([^"']+)["']/i);
+    const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i);
     if (!key || key[1].toLowerCase() !== name.toLowerCase()) continue;
-    const value = tag.match(/\\bcontent\\s*=\\s*["']([^"']*)["']/i);
+    const value = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i);
     if (value) return clean(value[1]);
   }
   return '';
 }
 
 function getTitle(html) {
-  return clean((html.match(/<title[^>]*>([\\s\\S]*?)<\\/title>/i) || [,''])[1]);
+  return clean((html.match(/<title[^>]*>([\s\S]*?)<\/title>/i) || [,''])[1]);
 }
 
 function clean(value) {
@@ -126,7 +126,7 @@ function clean(value) {
     .replace(/&quot;/g, '"')
     .replace(/&#39;/g, "'")
     .replace(/<[^>]+>/g, ' ')
-    .replace(/\\s+/g, ' ')
+    .replace(/\s+/g, ' ')
     .trim();
 }
 
