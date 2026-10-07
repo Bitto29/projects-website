@@ -22,8 +22,11 @@ export default async function handler(req, res) {
     try {
       const shotUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(target.href) +
         '&screenshot=true&meta=false&viewport.width=1440&viewport.height=900&viewport.deviceScaleFactor=1&embed=screenshot.url';
-      const shot = await fetch(shotUrl);
-      if (shot.ok) screenshotUrl = shot.url || '';
+      const shot = await fetch(shotUrl.replace('&embed=screenshot.url', ''));
+      if (shot.ok) {
+        const shotData = await shot.json();
+        screenshotUrl = shotData?.data?.screenshot?.url || '';
+      }
     } catch {}
     const title = getMeta(html, 'og:title') || getTitle(html) || target.hostname;
     const description = getMeta(html, 'og:description') || getMeta(html, 'description') || '';
