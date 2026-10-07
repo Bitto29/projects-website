@@ -40,6 +40,8 @@ export default async function handler(req, res) {
       img: String(project.img || ''),
       u: String(project.u || ''),
       l: String(project.l || 'View Project'),
+      tags: Array.isArray(project.tags) ? project.tags.map(String).slice(0, 20) : [],
+      tech: Array.isArray(project.tech) ? project.tech.map(String).slice(0, 12) : [],
       order: maxOrder + 1
     };
 
