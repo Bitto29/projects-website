@@ -149,7 +149,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 
 fetch('projects.json?v='+Date.now())
   .then(r=>{if(!r.ok)throw new Error('Could not load projects.json');return r.json()})
-  .then(data=>{projects=Array.isArray(data)?data:[];renderProjects()})
+  .then(data=>{projects=(Array.isArray(data)?data:[]).sort((a,b)=>(Number(b.order)||0)-(Number(a.order)||0));renderProjects()})
   .catch(err=>{
     console.error(err);
     document.getElementById('count').textContent='Projects unavailable';
