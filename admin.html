@@ -46,7 +46,10 @@ $('generate').onclick=async()=>{
   $('generate').disabled=true;$('status').textContent='Opening project and generating details...';
   try{
     const r=await fetch('/api/generate-project',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
-    const data=await r.json();if(!r.ok)throw new Error(data.error||'Generation failed.');
+    const raw=await r.text();
+    let data;
+    try{data=JSON.parse(raw)}catch{throw new Error('Server error: '+raw.slice(0,300))}
+    if(!r.ok)throw new Error(data.error||'Generation failed.');
     draft=data.project;
     $('title').value=draft.t||'';$('category').value=draft.c||'';$('description').value=draft.d||'';
     $('shot').src=draft.img||'';
