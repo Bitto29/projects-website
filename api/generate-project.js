@@ -22,8 +22,8 @@ export default async function handler(req, res) {
     const image = getMeta(html, 'og:image') || '';
 
     const textContent = html
-      .replace(/<script[\\s\\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\\s\\S]*?<\/style>/gi, ' ')
+      .replace(/<script[\\s\\S]*?<\\/script>/gi, ' ')
+      .replace(/<style[\\s\\S]*?<\\/style>/gi, ' ')
       .replace(/<[^>]+>/g, ' ')
       .replace(/\\s+/g, ' ')
       .trim()
@@ -95,10 +95,14 @@ Page text: ${textContent}`;
 }
 
 function getMeta(html, name) {
-  const safe = name.replace(/[.*+?^$\\{}()|[\\]\\]/g, '\\$&');
-  const re1 = new RegExp('<meta[^>]+(?:property|name)=["\\\\\']' + safe + '["\\\\\'][^>]+content=["\\\\\']([^"\\\\\']*)["\\\\\']', 'i');
-  const re2 = new RegExp('<meta[^>]+content=["\\\\\']([^"\\\\\']*)["\\\\\'][^>]+(?:property|name)=["\\\\\']' + safe + '["\\\\\']', 'i');
-  return clean((html.match(re1) || html.match(re2) || [,''])[1]);
+  const tags = html.match(/<meta\\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    const key = tag.match(/\\b(?:property|name)\\s*=\\s*["']([^"']+)["']/i);
+    if (!key || key[1].toLowerCase() !== name.toLowerCase()) continue;
+    const value = tag.match(/\\bcontent\\s*=\\s*["']([^"']*)["']/i);
+    if (value) return clean(value[1]);
+  }
+  return '';
 }
 
 function getTitle(html) {
@@ -106,7 +110,13 @@ function getTitle(html) {
 }
 
 function clean(value) {
-  return String(value || '').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ').trim();
+  return String(value || '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\\s+/g, ' ')
+    .trim();
 }
 
 function guessCategory(title, description, text) {
