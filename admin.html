@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Project Publisher | Bitto29</title>
 <style>
-:root{color-scheme:dark;--bg:#10100f;--card:#191816;--line:#34312b;--ink:#f4efe6;--muted:#aaa296;--accent:#ff6a42}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.status{margin-top:16px;color:var(--muted)}.tagbox{position:relative}.tagmenu{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 6px);background:#171614;border:1px solid var(--line);border-radius:12px;padding:8px;max-height:250px;overflow:auto;box-shadow:0 12px 30px #0008}.tagmenu.open{display:block}.tagmenu label{display:flex;align-items:center;gap:9px;margin:0;padding:9px;border-radius:8px;font-weight:400;cursor:pointer}.tagmenu label:hover{background:#24221f}.tagmenu input{width:auto;padding:0;accent-color:var(--accent)}.selected-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.custom-row{display:flex;gap:8px;margin-top:8px}.custom-row input{flex:1}.custom-row button{margin:0;border-radius:10px;padding:10px 14px}.cat-custom{display:none;margin-top:8px}.cat-custom.show{display:block}.hint{font-size:12px;color:var(--muted);margin-top:6px}.manage-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:9px;background:#141310}.manage-row img{width:64px;height:42px;object-fit:cover;border-radius:7px;background:#25231f}.manage-info strong{display:block}.manage-info small{color:var(--muted)}.manage-actions{display:flex;gap:5px}.manage-actions button{margin:0;padding:8px 11px;border-radius:8px}.danger{background:#8d3028!important;color:#fff!important}.manage-empty{color:var(--muted);padding:15px 0}@media(max-width:650px){.preview{grid-template-columns:1fr}.manage-row{grid-template-columns:52px 1fr}.manage-row img{width:52px;height:38px}.manage-actions{grid-column:1/-1}}
+:root{color-scheme:dark;--bg:#10100f;--card:#191816;--line:#34312b;--ink:#f4efe6;--muted:#aaa296;--accent:#ff6a42;--success:#49d17d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui,sans-serif}.wrap{max-width:900px;margin:auto;padding:40px 20px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:20px}h1{font-size:32px;margin:0}p{color:var(--muted)}label{display:block;margin:18px 0 7px;font-weight:600}input,textarea,select{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;background:#11110f;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}button{border:0;border-radius:999px;padding:12px 20px;background:var(--ink);color:#111;cursor:pointer;font-weight:700;margin-top:18px}button.secondary{background:transparent;color:var(--ink);border:1px solid var(--line);margin-left:8px}button:disabled{opacity:.5;cursor:not-allowed}.preview{display:grid;grid-template-columns:260px 1fr;gap:22px}.preview img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:10px;background:#25231f}.status{margin-top:16px;color:var(--muted)}.status.ok{color:var(--success);font-weight:600}.tagbox{position:relative}.tagmenu{display:none;position:absolute;z-index:5;left:0;right:0;top:calc(100% + 6px);background:#171614;border:1px solid var(--line);border-radius:12px;padding:8px;max-height:250px;overflow:auto;box-shadow:0 12px 30px #0008}.tagmenu.open{display:block}.tagmenu label{display:flex;align-items:center;gap:9px;margin:0;padding:9px;border-radius:8px;font-weight:400;cursor:pointer}.tagmenu label:hover{background:#24221f}.tagmenu input{width:auto;padding:0;accent-color:var(--accent)}.selected-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}.pill{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:5px 9px;color:var(--muted);font-size:12px}.custom-row{display:flex;gap:8px;margin-top:8px}.custom-row input{flex:1}.custom-row button{margin:0;border-radius:10px;padding:10px 14px}.cat-custom{display:none;margin-top:8px}.cat-custom.show{display:block}.hint{font-size:12px;color:var(--muted);margin-top:6px}.manage-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:9px;background:#141310}.manage-row img{width:64px;height:42px;object-fit:cover;border-radius:7px;background:#25231f}.manage-info strong{display:block}.manage-info small{color:var(--muted)}.manage-actions{display:flex;gap:5px}.manage-actions button{margin:0;padding:8px 11px;border-radius:8px}.danger{background:#8d3028!important;color:#fff!important}.manage-empty{color:var(--muted);padding:15px 0}@media(max-width:650px){.preview{grid-template-columns:1fr}.manage-row{grid-template-columns:52px 1fr}.manage-row img{width:52px;height:38px}.manage-actions{grid-column:1/-1}}
 </style>
 </head>
 <body>
@@ -107,7 +107,7 @@ $('customTag').onkeydown=e=>{if(e.key==='Enter'){$('addTag').click();e.preventDe
 $('generate').onclick=async()=>{
   const url=$('url').value.trim();
   if(!url)return $('status').textContent='Enter a project URL first.';
-  $('generate').disabled=true;$('status').textContent='Opening project and generating details...';
+  $('generate').disabled=true;$('status').className='status';$('status').textContent='Opening project and generating details...';
   try{
     const r=await fetch('/api/generate-project',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({url})});
     const raw=await r.text();let data;
@@ -121,7 +121,7 @@ $('generate').onclick=async()=>{
     selectedTags.clear();
     [...(draft.tags||[]),...(draft.tech||[])].forEach(t=>selectedTags.add(String(t)));
     renderTags();
-    $('preview').hidden=false;$('status').textContent='Draft ready. Review and edit it before publishing.';
+    $('preview').hidden=false;$('status').className='status';$('status').textContent='Draft ready. Review and edit it before publishing.';
   }catch(e){$('status').textContent=e.message}
   finally{$('generate').disabled=false}
 };
@@ -139,12 +139,15 @@ $('publish').onclick=async()=>{
     const raw=await r.text();let data;
     try{data=JSON.parse(raw)}catch{throw new Error('Server error: '+raw.slice(0,300))}
     if(!r.ok)throw new Error(data.error||'Publish failed.');
-    $('status').textContent='Published! GitHub/Vercel will update the projects site automatically.';
+    $('status').className='status ok';
+    $('status').innerHTML='✓ Published successfully! <a href="https://bitto29.github.io/projects-website/" target="_blank" rel="noopener" style="color:var(--success)">Open Projects Site ↗</a>';
+    $('publish').textContent='Published ✓';
+    $('publish').disabled=true;
   }catch(e){$('status').textContent=e.message}
   finally{$('publish').disabled=false}
 };
 
-$('reset').onclick=()=>{draft=null;selectedTags.clear();renderTags();$('preview').hidden=true;$('status').textContent='';$('url').focus()};
+$('reset').onclick=()=>{draft=null;selectedTags.clear();renderTags();$('preview').hidden=true;$('status').className='status';$('status').textContent='';$('publish').textContent='Publish to Projects';$('publish').disabled=false;$('url').focus()};
 function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 renderTags();
 
