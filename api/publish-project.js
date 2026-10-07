@@ -31,6 +31,12 @@ export default async function handler(req, res) {
 
     const decoded = Buffer.from(file.content, 'base64').toString('utf8');
     const projects = JSON.parse(decoded);
+    const projectUrl = String(project.u || '').trim();
+    const duplicateIndex = projects.findIndex(p => String(p.u || '').trim().toLowerCase() === projectUrl.toLowerCase());
+    if (duplicateIndex !== -1) {
+      return res.status(409).json({ error: 'This project is already in your projects list.' });
+    }
+
     const maxOrder = projects.reduce((max, p) => Math.max(max, Number(p.order) || 0), 0);
 
     const next = {
