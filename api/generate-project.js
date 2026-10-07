@@ -17,6 +17,14 @@ export default async function handler(req, res) {
     }
 
     const html = await response.text();
+
+    let screenshotUrl = '';
+    try {
+      const shotUrl = 'https://api.microlink.io/?url=' + encodeURIComponent(target.href) +
+        '&screenshot=true&meta=false&viewport.width=1440&viewport.height=900&viewport.deviceScaleFactor=1&embed=screenshot.url';
+      const shot = await fetch(shotUrl);
+      if (shot.ok) screenshotUrl = shot.url || '';
+    } catch {}
     const title = getMeta(html, 'og:title') || getTitle(html) || target.hostname;
     const description = getMeta(html, 'og:description') || getMeta(html, 'description') || '';
     const image = getMeta(html, 'og:image') || '';
@@ -83,7 +91,7 @@ Page text: ${textContent}`;
       project: {
         ...generated,
         u: target.href,
-        img: image,
+        img: screenshotUrl || image,
         l: 'View Project',
         order: Date.now()
       },
