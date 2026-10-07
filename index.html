@@ -147,7 +147,7 @@ fx.addEventListener('click',e=>{
 
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
 
-fetch('projects.json?v='+Date.now())
+fetch('https://raw.githubusercontent.com/Bitto29/projects-website/main/projects.json?cb='+Date.now(),{cache:'no-store'})
   .then(r=>{if(!r.ok)throw new Error('Could not load projects.json');return r.json()})
   .then(data=>{projects=(Array.isArray(data)?data:[]).sort((a,b)=>(Number(b.order)||0)-(Number(a.order)||0));renderProjects()})
   .catch(err=>{
