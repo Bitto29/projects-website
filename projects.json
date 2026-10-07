@@ -1,13 +1,101 @@
 [
-  {"t":"Foc Lock","c":"Web App","d":"All in one study tracker available both as a web app and an Android APK.","img":"https://bitto.pages.dev/foclock.vercel.app_.png","u":"https://foclock.vercel.app/","l":"Open App"},
-  {"t":"Demo Cafe Website","c":"Website","d":"A fully functional demo website built for a cafe.","img":"https://i.postimg.cc/CKz7NBHV/image.png","u":"https://b29cafedemo.vercel.app/","l":"View Project"},
-  {"t":"ChatB","c":"AI","d":"An artificially intelligent chatbot built using NLP and machine learning.","img":"https://bitto.pages.dev/project2.jpg","u":"https://bitto29.github.io/chatb","l":"View Project"},
-  {"t":"Portfolio - 1","c":"Portfolio","d":"My first professional portfolio website showcasing my skills and projects with a clean, modern design.","img":"Portfollio-Bitto.jpeg","u":"https://bitto29.github.io/portfolio-1","l":"View Project"},
-  {"t":"QR Code Generator","c":"Tool","d":"A responsive web application that generates customizable QR codes for any URL or text input instantly.","img":"QR Code Generator.jpeg","u":"https://bitto29.github.io/qrcode-generator","l":"View Project"},
-  {"t":"New Year Countdown 2024","c":"Interactive","d":"An animated countdown timer displaying days, hours, minutes and seconds remaining until New Year 2024.","img":"New Year 2024 Countdown.jpeg","u":"https://bitto29.github.io/new-year-countdown","l":"View Project"},
-  {"t":"Password Generator","c":"Security","d":"A secure password generator with customizable length and character options for enhanced account security.","img":"Password Generator.jpeg","u":"https://bitto29.github.io/password-generator","l":"View Project"},
-  {"t":"ChatGPT Clone","c":"AI","d":"A frontend clone of the popular AI chatbot ChatGPT with a similar interface and responsive design.","img":"Chat GPT.jpeg","u":"https://bitto29.github.io/chatgpt-clone","l":"View Project"},
-  {"t":"Rock Paper Scissors","c":"Game","d":"A fun interactive game with score tracking and animations that pits you against the computer.","img":"Document.jpeg","u":"https://bitto29.github.io/rock-paper-scissors-game","l":"View Project"},
-  {"t":"Curriculum Vitae","c":"Resume","d":"My professional CV highlighting my education, skills, experience and accomplishments.","img":"cv1ss.png","u":"https://bitto29.github.io/cv1","l":"View CV"},
-  {"t":"Portfolio - 2","c":"Portfolio","d":"An enhanced portfolio website with improved design elements and better user experience.","img":"portfolio.png","u":"https://bitto29.github.io/portfolio","l":"View Project"}
+  {
+    "t": "Foc Lock",
+    "c": "Web App",
+    "d": "All in one study tracker available both as a web app and an Android APK.",
+    "img": "https://bitto.pages.dev/foclock.vercel.app_.png",
+    "u": "https://foclock.vercel.app/",
+    "l": "Open App",
+    "order": 11
+  },
+  {
+    "t": "Demo Cafe Website",
+    "c": "Website",
+    "d": "A fully functional demo website built for a cafe.",
+    "img": "https://i.postimg.cc/CKz7NBHV/image.png",
+    "u": "https://b29cafedemo.vercel.app/",
+    "l": "View Project",
+    "order": 10
+  },
+  {
+    "t": "ChatB",
+    "c": "AI",
+    "d": "An artificially intelligent chatbot built using NLP and machine learning.",
+    "img": "https://bitto.pages.dev/project2.jpg",
+    "u": "https://bitto29.github.io/chatb",
+    "l": "View Project",
+    "order": 9
+  },
+  {
+    "t": "Portfolio - 1",
+    "c": "Portfolio",
+    "d": "My first professional portfolio website showcasing my skills and projects with a clean, modern design.",
+    "img": "Portfollio-Bitto.jpeg",
+    "u": "https://bitto29.github.io/portfolio-1",
+    "l": "View Project",
+    "order": 8
+  },
+  {
+    "t": "QR Code Generator",
+    "c": "Tool",
+    "d": "A responsive web application that generates customizable QR codes for any URL or text input instantly.",
+    "img": "QR Code Generator.jpeg",
+    "u": "https://bitto29.github.io/qrcode-generator",
+    "l": "View Project",
+    "order": 7
+  },
+  {
+    "t": "New Year Countdown 2024",
+    "c": "Interactive",
+    "d": "An animated countdown timer displaying days, hours, minutes and seconds remaining until New Year 2024.",
+    "img": "New Year 2024 Countdown.jpeg",
+    "u": "https://bitto29.github.io/new-year-countdown",
+    "l": "View Project",
+    "order": 6
+  },
+  {
+    "t": "Password Generator",
+    "c": "Security",
+    "d": "A secure password generator with customizable length and character options for enhanced account security.",
+    "img": "Password Generator.jpeg",
+    "u": "https://bitto29.github.io/password-generator",
+    "l": "View Project",
+    "order": 5
+  },
+  {
+    "t": "ChatGPT Clone",
+    "c": "AI",
+    "d": "A frontend clone of the popular AI chatbot ChatGPT with a similar interface and responsive design.",
+    "img": "Chat GPT.jpeg",
+    "u": "https://bitto29.github.io/chatgpt-clone",
+    "l": "View Project",
+    "order": 4
+  },
+  {
+    "t": "Rock Paper Scissors",
+    "c": "Game",
+    "d": "A fun interactive game with score tracking and animations that pits you against the computer.",
+    "img": "Document.jpeg",
+    "u": "https://bitto29.github.io/rock-paper-scissors-game",
+    "l": "View Project",
+    "order": 3
+  },
+  {
+    "t": "Curriculum Vitae",
+    "c": "Resume",
+    "d": "My professional CV highlighting my education, skills, experience and accomplishments.",
+    "img": "cv1ss.png",
+    "u": "https://bitto29.github.io/cv1",
+    "l": "View CV",
+    "order": 2
+  },
+  {
+    "t": "Portfolio - 2",
+    "c": "Portfolio",
+    "d": "An enhanced portfolio website with improved design elements and better user experience.",
+    "img": "Portfolio.png",
+    "u": "https://bitto29.github.io/portfolio",
+    "l": "View Project",
+    "order": 1
+  }
 ]
