@@ -82,12 +82,14 @@
     "order": 7
   },
   {
-    "t": "New Year Countdown 2024",
+    "t": "New Year Countdown 2027",
     "c": "Interactive",
     "d": "An animated countdown timer displaying days, hours, minutes and seconds remaining until New Year 2024.",
-    "img": "New Year 2024 Countdown.jpeg",
+    "img": "New Year 2027 Countdown.jpeg",
     "u": "https://bitto29.github.io/new-year-countdown",
     "l": "View Project",
+    "tags": [],
+    "tech": [],
     "order": 6
   },
   {
