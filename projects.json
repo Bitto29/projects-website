@@ -1,5 +1,16 @@
 [
   {
+    "t": "Lite Call",
+    "c": "Web App",
+    "d": "Send messages, join audio and video call directly from browser. No sign up.",
+    "img": "https://iad.microlink.io/AoG9Ow_9T6glvqtGzcvSXIIx3W6cibTtnxkB5TJ1Ja1jSSNTvrtwVH_9gjmBrrwz994PWiDZ9MTpu-acJfVpPQ.png",
+    "u": "https://litecall.vercel.app/",
+    "l": "View Project",
+    "tags": [],
+    "tech": [],
+    "order": 15
+  },
+  {
     "t": "BlockCraft",
     "c": "Web App",
     "d": "A web project created by Basit Iqbal Bitto.",
