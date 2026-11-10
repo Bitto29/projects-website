@@ -174,11 +174,11 @@ function isHttpsUrl(value) {
 }
 
 function getMeta(html, name) {
-  const tags = html.match(/<meta\\b[^>]*>/gi) || [];
+  const tags = html.match(/<meta\b[^>]*>/gi) || [];
   for (const tag of tags) {
-    const key = tag.match(/\\b(?:property|name)\\s*=\\s*["']([^"']+)["']/i);
+    const key = tag.match(/\b(?:property|name)\s*=\s*["']([^"']+)["']/i);
     if (!key || key[1].toLowerCase() !== name.toLowerCase()) continue;
-    const value = tag.match(/\\bcontent\\s*=\\s*["']([^"']*)["']/i);
+    const value = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i);
     if (value) return value[1].replace(/&amp;/g, '&').trim();
   }
   return '';
