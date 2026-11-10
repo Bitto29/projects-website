@@ -80,7 +80,7 @@ export default async function handler(req, res) {
         headers,
         body: JSON.stringify({
           message: 'Repair project preview: ' + String(latest.projects[index].t || 'project').slice(0, 60),
-          content: Buffer.from(JSON.stringify(latest.projects, null, 2) + '\\n').toString('base64'),
+          content: Buffer.from(JSON.stringify(latest.projects, null, 2) + '\n').toString('base64'),
           sha: latest.sha,
           branch: 'main'
         })
@@ -120,7 +120,8 @@ function normalizeProjectUrl(value) {
     if (url.protocol !== 'https:') return '';
     if (url.username || url.password) return '';
     if (url.hostname === 'localhost' || url.hostname.endsWith('.local')) return '';
-    return url.href.replace(/\\/$/, '').toLowerCase();
+    const path = url.pathname.endsWith('/') ? url.pathname.slice(0, -1) : url.pathname;
+    return url.origin + path + url.search;
   } catch {
     return '';
   }
