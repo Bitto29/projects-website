@@ -56,6 +56,12 @@ nav .right a:hover{color:var(--ink)}
 .card.hide{display:none}
 .shot{aspect-ratio:16/10;background:var(--line);overflow:hidden;position:relative}
 .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s}
+.shot-fallback{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;gap:9px;background:var(--surface);color:var(--muted);font-size:.88rem;text-align:center}
+.shot-fallback .fallback-mark{display:grid;place-items:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;font-size:1.3rem;color:var(--accent)}
+.shot.repairing .shot-fallback,.shot.failed .shot-fallback{display:flex}
+.shot.repairing img,.shot.failed img{visibility:hidden}
+.shot.repairing .fallback-mark{animation:preview-spin 1.2s linear infinite}
+@keyframes preview-spin{to{transform:rotate(360deg)}}
 .card:hover .shot img{transform:scale(1.04)}
 .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
 .meta{font-size:.82rem;color:var(--accent);font-weight:600}
@@ -121,9 +127,12 @@ const grid=document.getElementById('grid');
 const fx=document.getElementById('filters');
 
 function renderProjects(){
-  grid.innerHTML=projects.map(p=>`
+  grid.innerHTML=projects.map((p,index)=>`
 <a class="card reveal" data-c="${p.c}" href="${p.u}" target="_blank" rel="noopener">
-  <div class="shot"><img src="${p.img}" alt="${p.t} screenshot" loading="lazy" onerror="this.style.display='none'"></div>
+  <div class="shot">
+    <img data-project-index="${index}" src="${p.img||''}" alt="${p.t} screenshot" loading="lazy">
+    <div class="shot-fallback"><span class="fallback-mark">↻</span><span class="fallback-message">Preview unavailable</span></div>
+  </div>
   <div class="body"><span class="meta">${p.c}</span><h3>${p.t}</h3><p>${p.d}</p>
   <div class="go"><span>${p.l||'View Project'}</span>${arrow}</div></div>
 </a>`).join('');
@@ -132,6 +141,54 @@ function renderProjects(){
   const cats=['All',...new Set(projects.map(p=>p.c))];
   fx.innerHTML=cats.map((c,i)=>`<button class="chip${i?'':' on'}" data-f="${c}">${c}</button>`).join('');
   grid.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  grid.querySelectorAll('img[data-project-index]').forEach(img=>{
+    img.addEventListener('error',()=>repairPreview(img),{once:true});
+  });
+}
+
+const PREVIEW_REPAIR_API='https://projects-website29.vercel.app/api/repair-preview';
+
+async function repairPreview(img){
+  if(img.dataset.repairAttempted==='1')return;
+  img.dataset.repairAttempted='1';
+  const projectIndex=Number(img.dataset.projectIndex);
+  const project=projects[projectIndex];
+  const shot=img.closest('.shot');
+  const message=shot.querySelector('.fallback-message');
+  if(!project||!project.u){
+    shot.classList.add('failed');
+    message.textContent='Preview unavailable';
+    return;
+  }
+
+  shot.classList.add('repairing');
+  message.textContent='Refreshing preview...';
+  try{
+    const response=await fetch(PREVIEW_REPAIR_API,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({url:project.u,failedImage:project.img||''})
+    });
+    const result=await response.json();
+    if(!response.ok||!result.image)throw new Error(result.error||'Could not create a new preview.');
+
+    project.img=result.image;
+    img.onload=()=>{
+      shot.classList.remove('repairing','failed');
+      img.style.visibility='visible';
+    };
+    img.onerror=()=>{
+      shot.classList.remove('repairing');
+      shot.classList.add('failed');
+      message.textContent='Preview could not be restored';
+    };
+    img.src=result.image;
+  }catch(error){
+    console.warn('Preview repair failed for '+project.t,error);
+    shot.classList.remove('repairing');
+    shot.classList.add('failed');
+    message.textContent='Preview unavailable';
+  }
 }
 
 fx.addEventListener('click',e=>{
